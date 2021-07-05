@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>my_Project</title>
-</head>
+{% include 'head.html' %}
 <body>
-<h1>할라월두~</h1>
+{% include 'header.html' %}
+{% block content %}
+
+{% endblock %}
+{% include 'footer.html' %}
 </body>
 </html>
