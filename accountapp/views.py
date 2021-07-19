@@ -5,13 +5,13 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 from accountapp.models import HelloWorld
 
 
 def hello_world(request):
-    if request.method == 'POST' :
+    if request.method == 'POST':
 
         temp = request.POST.get('input_text')
 
@@ -21,7 +21,7 @@ def hello_world(request):
 
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
 
-    else :
+    else:
         hello_world_list = HelloWorld.objects.all()
         return render(request, 'accountapp/hello_world.html',
                       context={'hello_world_list': hello_world_list})
@@ -29,14 +29,20 @@ def hello_world(request):
 
 class AccountCreateView(CreateView):
     model = User
-    form_class =UserCreationForm
+    form_class = UserCreationForm
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/create.html'
 
 
 class AccountDetailView(DetailView):
     model = User
-    context_object_name ='target_user'
+    context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
 
 
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = UserCreationForm
+    context_object_name = 'target_user'
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/update.html'
