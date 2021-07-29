@@ -24,19 +24,16 @@
             </h2>
             {% endif %}
         </div>
-        <div>
-            {{ target_user.date_joined }}
-        </div>
 
         {% if user == target_user %}
         <div>
-            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-                Update Info
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}"
+                class="material-icons round_button mx-1">
+                    assignment
             </a>
-        </div>
-        <div>
-            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
-                Delete
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}"
+               class="material-icons round_button mx-1">
+                    delete_outline
             </a>
         </div>
         {% endif %}
