@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
 {% load bootstrap4 %}
-
-{%  block content %}
 
 
     <div class="text-center mw-500 m-auto">
@@ -14,12 +11,13 @@
             <form action="{% url 'commentapp:create' %}" method="post">
                 {% csrf_token %}
                 {% bootstrap_form form %}
+                <input type="hidden"
+                       name="article_pk"
+                       value={{ target_article.pk }}
+                >
                 <div class="m-5">
                 <input type="submit" class="btn btn-dark rounded-pill px-5">
                 </div>
             </form>
         </div>
     </div>
-
-
-{% endblock %}
