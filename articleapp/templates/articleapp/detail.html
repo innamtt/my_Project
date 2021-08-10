@@ -40,6 +40,25 @@
 
         <div>
             {#      댓글 내용, 댓글 작성      #}
+
+            {% for comment in target_article.comment.all %}
+
+                <div class="comment_box">
+                    <div>
+                            <span style="font-size: 1.4rem;" class="NNS_B">
+                                {{ comment.writer.profile.nickname }}
+                            </span>
+                        <span>{{ comment.create_at }}</span>
+                    </div>
+                    <div>
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                </div>
+
+            {% endfor %}
+
             {% include 'commentapp/create.html' %}
         </div>
     </div>
