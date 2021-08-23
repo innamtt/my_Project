@@ -1,12 +1,16 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
+from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import RedirectView
 
 from projectapp.models import Project
 from subscribeapp.models import Subscription
 
 
+@method_decorator(login_required, 'get')
 class SubscriptionView(RedirectView):
 
     def get(self, request, *args, **kwargs):
