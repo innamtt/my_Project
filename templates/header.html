@@ -1,21 +1,23 @@
 <div style="text-align: center;" >
     <div class="intro_header_logo">
-        <h1>intro</h1>
+        <a href="{% url 'home' %}">
+            <h1>intro</h1>
+        </a>
     </div>
     <div class="intro_header_buttons">
-        <span>
+        <span class="mx-5">
             <a href="{% url 'articleapp:list' %}">
                 Articles
             </a>
         </span>
-        <span>
+        <span class="mx-5">
             <a href="{% url 'projectapp:list' %}">
                 Projects
             </a>
         </span>
 
         {% if user.is_authenticated %}
-        <span>
+        <span class="mx-5">
             <a href="{% url 'subscribeapp:list' %}">
                 Subscription
             </a>
@@ -23,11 +25,11 @@
         {% endif %}
 
         {% if not user.is_authenticated %}
-        <span><a href="{% url 'accountapp:login' %}">Login</a></span>
-        <span><a href="{% url 'accountapp:create' %}">SignUp</a></span>
+        <span class="mx-5"><a href="{% url 'accountapp:login' %}">Login</a></span>
+        <span class="mx-5"><a href="{% url 'accountapp:create' %}">SignUp</a></span>
         {% else %}
-        <span><a href="{% url 'accountapp:detail' pk=user.pk %}">Profile</a></span>
-        <span><a href="{% url 'accountapp:logout' %}">Logout</a></span>
+        <span class="mx-5"><a href="{% url 'accountapp:detail' pk=user.pk %}">Profile</a></span>
+        <span class="mx-5"><a href="{% url 'accountapp:logout' %}">Logout</a></span>
         {% endif %}
     </div>
 </div>
