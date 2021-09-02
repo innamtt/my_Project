@@ -84,3 +84,6 @@ __pycache__/
 media/
 
 staticfiles/
+
+my_project_gcp
+my_project_gcp.pub
