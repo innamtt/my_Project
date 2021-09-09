@@ -5,19 +5,19 @@
         </a>
     </div>
     <div class="intro_header_buttons">
-        <span class="mx-5">
+        <span class="mx-2">
             <a href="{% url 'articleapp:list' %}">
                 Articles
             </a>
         </span>
-        <span class="mx-5">
+        <span class="mx-2">
             <a href="{% url 'projectapp:list' %}">
                 Projects
             </a>
         </span>
 
         {% if user.is_authenticated %}
-        <span class="mx-5">
+        <span class="mx-2">
             <a href="{% url 'subscribeapp:list' %}">
                 Subscription
             </a>
@@ -25,11 +25,11 @@
         {% endif %}
 
         {% if not user.is_authenticated %}
-        <span class="mx-5"><a href="{% url 'accountapp:login' %}">Login</a></span>
-        <span class="mx-5"><a href="{% url 'accountapp:create' %}">SignUp</a></span>
+        <span class="mx-2"><a href="{% url 'accountapp:login' %}">Login</a></span>
+        <span class="mx-2"><a href="{% url 'accountapp:create' %}">SignUp</a></span>
         {% else %}
-        <span class="mx-5"><a href="{% url 'accountapp:detail' pk=user.pk %}">Profile</a></span>
-        <span class="mx-5"><a href="{% url 'accountapp:logout' %}">Logout</a></span>
+        <span class="mx-2"><a href="{% url 'accountapp:detail' pk=user.pk %}">Profile</a></span>
+        <span class="mx-2"><a href="{% url 'accountapp:logout' %}">Logout</a></span>
         {% endif %}
     </div>
 </div>
