@@ -40,3 +40,4 @@ networks:
 volumes:
   my_project_static:
   my_project_media:
+  myproject_mariadb:
