@@ -14,12 +14,24 @@ services:
       - my_project_media:/data/media/
 
   django:
-    image: my_project_django:3
+    image: my_project_django:4
     networks:
       - myProject_network
     volumes:
-      - my_project_static:/home/innamtt/staticfiles/
-      - my_project_media:/home/innamtt/media/
+      - my_project_static:/home/my_project/staticfiles/
+      - my_project_media:/home/my_project/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - myProject_network
+    volumes:
+      -myproject_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 
 networks:
