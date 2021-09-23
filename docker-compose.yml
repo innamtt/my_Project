@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    image: nginx:1.19.5
+    ports:
+      - 80:80
+    networks:
+      - myProject_network
+    volumes:
+      - /home/innamtt/nginx.conf:/etc/nginx/nginx.conf
+      - my_project_static:/data/static/
+      - my_project_media:/data/media/
+
+  django:
+    image: my_project_django:3
+    networks:
+      - myProject_network
+    volumes:
+      - my_project_static:/home/innamtt/staticfiles/
+      - my_project_media:/home/innamtt/media/
+
+
+networks:
+  myProject_network:
+
+volumes:
+  my_project_static:
+  my_project_media:
