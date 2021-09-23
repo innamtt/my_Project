@@ -26,13 +26,12 @@ services:
     networks:
       - myProject_network
     volumes:
-      -myproject_mariadb:/var/lib/mysql
+      - myproject_mariadb:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: password1234
       MARIADB_DATABASE: django
       MARIADB_USER: django
       MARIADB_PASSWORD: password1234
-
 
 networks:
   myProject_network:
